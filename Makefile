@@ -32,6 +32,7 @@ help:
 	@echo "make protect:enable # enable branch protection for main (admin token)"
 	@echo "make ssh:auto       # SSH automation (agent + test + tunnel + status)"
 	@echo "make ssh:status     # show SSH connection status"
+	@echo "make lint:md:fix    # auto-fix markdown issues (URLs, fences, spacing)"
 
 .PHONY: install
 install:
@@ -68,6 +69,21 @@ lint-md:
 	fi
 
 lint\:md: lint-md
+
+.PHONY: lint-md-fix lint\:md\:fix
+lint-md-fix:
+	@echo "[md] auto-fixing with markdownlint --fix + mdformat"
+	@$(NPX) --yes markdownlint-cli2 --fix "docs/**/*.md" || true
+	@if command -v mdformat >/dev/null 2>&1; then \
+		mdformat docs || true; \
+	elif $(PY) -c "import mdformat" >/dev/null 2>&1; then \
+		$(PY) -m mdformat docs || true; \
+	else \
+		echo "[md] mdformat not available; run 'make install'"; \
+	fi
+	@$(PY) scripts/fix_markdown.py || true
+
+lint\:md\:fix: lint-md-fix
 
 .PHONY: footer
 footer:
