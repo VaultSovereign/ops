@@ -103,6 +103,11 @@
       "name": "tests.run",
       "description": "Run pytest and produce JUnit XML",
       "command": "make test"
+    },
+    {
+      "name": "reports.publish",
+      "description": "Build HTML reports site locally",
+      "command": "make reports:site"
     }
   ]
 }

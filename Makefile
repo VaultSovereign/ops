@@ -9,6 +9,10 @@ PROMPTS_DIR := prompts
 TOOLS_DIR := tools
 EVAL_DIR := eval-results
 COVERAGE_THRESHOLD ?= 80
+REPORTS_DIR := reports-html
+COV_HTML := $(REPORTS_DIR)/coverage/index.html
+ADV_HTML := $(REPORTS_DIR)/adversarial/index.html
+JUNIT_HTML := $(REPORTS_DIR)/junit/index.html
 
 .DEFAULT_GOAL := help
 
@@ -35,6 +39,11 @@ help:
 	@echo "make lint:md:fix    # auto-fix markdown issues (URLs, fences, spacing)"
 	@echo "make lint:md:fix-all # complete markdown fix (URLs, fences, headings)"
 	@echo "make test           # run pytest with JUnit XML output"
+	@echo "make evals:html     # generate coverage HTML report"
+	@echo "make adversarial:html # generate adversarial HTML report"
+	@echo "make junit:html     # generate JUnit HTML report"
+	@echo "make reports:site   # build complete HTML reports site"
+	@echo "make reports:clean  # clean reports directory"
 
 .PHONY: install
 install:
@@ -248,3 +257,36 @@ test:
 .PHONY: check
 check: validate-json prompts-lint lint-md footer guardrails
 	@echo "[check] aggregate checks finished"
+
+.PHONY: reports-clean reports\:clean
+reports-clean:
+	@echo "[reports] cleaning reports directory"
+	@rm -rf $(REPORTS_DIR)
+	@mkdir -p $(REPORTS_DIR)/coverage $(REPORTS_DIR)/adversarial $(REPORTS_DIR)/junit
+
+reports\:clean: reports-clean
+
+.PHONY: evals-html evals\:html
+evals-html: reports-clean
+	@$(PY) scripts/generate_html_reports.py coverage
+
+evals\:html: evals-html
+
+.PHONY: adversarial-html adversarial\:html
+adversarial-html: reports-clean
+	@$(PY) scripts/generate_html_reports.py adversarial
+
+adversarial\:html: adversarial-html
+
+.PHONY: junit-html junit\:html
+junit-html: reports-clean
+	@$(PY) scripts/generate_html_reports.py junit
+
+junit\:html: junit-html
+
+.PHONY: reports-site reports\:site
+reports-site: evals-html adversarial-html junit-html
+	@echo "[reports] site assembled in $(REPORTS_DIR)"
+	@echo "[reports] preview with: python -m http.server -d $(REPORTS_DIR) 8080"
+
+reports\:site: reports-site

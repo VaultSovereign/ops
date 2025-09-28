@@ -544,17 +544,29 @@ def main() -> int:
 
     run_id = os.environ.get("GITHUB_RUN_ID")
     run_url = f"https://github.com/{repo}/actions/runs/{run_id}" if run_id else None
+    
+    # GitHub Pages base URL for reports
+    pages_base = f"https://{repo.split('/')[0].lower()}.github.io/{repo.split('/')[1]}"
+    
     artifact_lines: List[str] = []
     if run_url:
         artifact_lines.append(f"- Actions run: {run_url}")
+    
+    # Add GitHub Pages links for HTML reports
+    artifact_lines.append(f"- 📊 [Coverage Report]({pages_base}/coverage/)")
+    artifact_lines.append(f"- 🛡️ [Adversarial Analysis]({pages_base}/adversarial/)")
+    artifact_lines.append(f"- 📋 [JUnit Results]({pages_base}/junit/)")
+    
+    # Legacy artifact detection
     for candidate in [
         "coverage/index.html",
-        "eval-results/html/index.html",
+        "eval-results/html/index.html", 
         "eval-results/coverage/index.html",
     ]:
         candidate_path = Path(candidate)
         if candidate_path.exists():
             artifact_lines.append(f"- {candidate_path.as_posix()}")
+    
     artifacts_md = "\n".join(artifact_lines) if artifact_lines else "- _none detected_"
 
     head_sha = os.environ.get("GITHUB_SHA")

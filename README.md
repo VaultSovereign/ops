@@ -12,6 +12,27 @@
 
 VaultMesh TEM is a collection of parameterized cybersecurity AI prompts with enterprise-grade governance, safety controls, and automated validation. Each prompt behaves like an API with versioning, safety classifications, and adversarial testing.
 
+## Goal: Governance Analysis
+
+Analyze VaultMesh within DAO governance, civilization‑as‑code, and Earth’s leadership. Explore repository governance structures (councils/digests, receipts/audit trails, guardrails/policies, catalogs/indexes) and the philosophical frameworks that inform operational design.
+
+Includes:
+- Map repo artifacts to governance mechanisms and operational guardrails.
+- Identify gaps vs. DAO primitives (proposals, voting, execution) and “civilization‑as‑code” tenets.
+- Outline next steps for signals, federation, leadership selection, and crisis protocols.
+
+See: `docs/governance-analysis.md`
+
+Related drafts:
+- `docs/SIGNALS.md` — weighted signaling model
+- `docs/FEDERATION.md` — membership, trust, replication, disputes
+- `docs/LEADERSHIP.md` — roles, selection, terms, recall
+- `docs/CRISIS.md` — severities, activation, playbooks
+
+Proposals:
+- `proposals/README.md` — format and lifecycle
+- `docs/schemas/proposal.schema.json` — proposal schema (YAML/JSON)
+
 ## Repository Highlights
 
 - **16 Production-Ready Prompts**: Reconnaissance, vulnerability analysis, incident response, red team emulation, and more
