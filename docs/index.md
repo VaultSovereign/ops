@@ -48,6 +48,5 @@
 | `lawful-intercept-matrix` | [Lawful Intercept Matrix — Who / What / Oversight](tools/Lawful-Intercept-Matrix.md) | lawful, oversight, policy, regions |
 | `tool-matrix` | [Tool Matrix Scroll — Open‑Source Listening & Forensic Kit](tools/Tool-Matrix.md) | lawful, forensics, osint, network, mobile |
 
-
 — VaultMesh · Earth’s Civilization Ledger —
-© Vault Sovereign · https://vaultmesh.example/
+© Vault Sovereign · <https://vaultmesh.example/>

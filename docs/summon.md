@@ -4,9 +4,9 @@ Generated: 2025-09-28 04:44:09 UTC
 
 ## Recent changes (last 7 days)
 
-```
+```text
 No repository activity detected.
-```
+```text
 
 ## Open TODO / FIXME
 
@@ -19,6 +19,7 @@ No repository activity detected.
 - Stale last_reviewed (> 90 days): 0
 
 **Prompts missing summaries**
+
 - recon-assistant (prompts/Tem-Prompts.md)
 - vuln-enumerator (prompts/Tem-Prompts.md)
 - exploit-generator (prompts/Tem-Prompts.md)
@@ -82,16 +83,16 @@ No repository activity detected.
 - [ROE Token Format & Authorization](guardrails/README.md#roe-token-format-authorization)
 - [Adversarial Evaluation](guardrails/README.md#adversarial-evaluation)
 - [Operational Guidance](guardrails/README.md#operational-guidance)
-- [📜 Civilisation Ops Library — VaultMesh TEM Scroll](guides/Civilisation Ops Library.md#-civilisation-ops-library-vaultmesh-tem-scroll)
-- [🌅 Prologue](guides/Civilisation Ops Library.md#-prologue)
-- [🏛️ Ancient Memory](guides/Civilisation Ops Library.md#-ancient-memory)
-- [🔥 Modern Revival](guides/Civilisation Ops Library.md#-modern-revival)
-- [🛡️ TEM as Civilisation Ops Library](guides/Civilisation Ops Library.md#-tem-as-civilisation-ops-library)
-- [⚖️ Civilisational Practices](guides/Civilisation Ops Library.md#-civilisational-practices)
-- [✨ Vision](guides/Civilisation Ops Library.md#-vision)
-- [Sources Ledger](guides/Civilisation Ops Library.md#sources-ledger)
-- [📝 Footnotes](guides/Civilisation Ops Library.md#-footnotes)
-- [📚 Sources & References](guides/Civilisation Ops Library.md#-sources-references)
+- \[📜 Civilisation Ops Library — VaultMesh TEM Scroll\](guides/Civilisation Ops Library.md#-civilisation-ops-library-vaultmesh-tem-scroll)
+- \[🌅 Prologue\](guides/Civilisation Ops Library.md#-prologue)
+- \[🏛️ Ancient Memory\](guides/Civilisation Ops Library.md#-ancient-memory)
+- \[🔥 Modern Revival\](guides/Civilisation Ops Library.md#-modern-revival)
+- \[🛡️ TEM as Civilisation Ops Library\](guides/Civilisation Ops Library.md#-tem-as-civilisation-ops-library)
+- \[⚖️ Civilisational Practices\](guides/Civilisation Ops Library.md#-civilisational-practices)
+- \[✨ Vision\](guides/Civilisation Ops Library.md#-vision)
+- \[Sources Ledger\](guides/Civilisation Ops Library.md#sources-ledger)
+- \[📝 Footnotes\](guides/Civilisation Ops Library.md#-footnotes)
+- \[📚 Sources & References\](guides/Civilisation Ops Library.md#-sources-references)
 - …and 226 more headings
 
 ## Discovered links
@@ -149,5 +150,4 @@ No repository activity detected.
 - …and 212 more links
 
 — VaultMesh · Earth’s Civilization Ledger —
-© Vault Sovereign · https://vaultmesh.example/
-
+© Vault Sovereign · <https://vaultmesh.example/>

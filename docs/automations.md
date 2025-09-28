@@ -10,9 +10,7 @@ This repository treats prompts as code with automated governance. Automations en
 
 See also: `guardrails/README.md`, `prompts/index.schema.json`, `tools/index.json`.
 
----
-
+______________________________________________________________________
 
 — VaultMesh · Earth’s Civilization Ledger —
-© Vault Sovereign · https://vaultmesh.example/
-
+© Vault Sovereign · <https://vaultmesh.example/>
