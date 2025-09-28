@@ -1,0 +1,32 @@
+# VaultMesh extension Makefile — non-invasive. Safe to include from your existing Makefile.
+PY ?= python3
+
+.PHONY: validate evals digest proposals-lint signals-lint docs-index footer-ensure
+
+validate: proposals-lint signals-lint
+
+proposals-lint:
+	$(PY) scripts/proposal_lint.py --schema docs/schemas/proposal.schema.json --strict
+
+signals-lint:
+	$(PY) scripts/signal_validate.py --schema docs/schemas/signal.schema.json
+
+digest:
+	$(PY) scripts/generate_weekly_digest.py --write
+
+docs-index:
+	$(PY) scripts/index_docs.py --write
+
+footer-ensure:
+	$(PY) scripts/ensure_footer.py --write
+
+# Aliases with colons for convenience  
+proposals\:lint: proposals-lint
+signals\:lint: signals-lint  
+docs\:index: docs-index
+footer: footer-ensure
+
+# Optional pass-through to your existing evals flow if present
+evals:
+	@if [ -x scripts/run_evals.sh ]; then scripts/run_evals.sh; \
+	else echo "No eval runner found (scripts/run_evals.sh). Skipping."; fi

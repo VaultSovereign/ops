@@ -1,16 +1,47 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Signal",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vaultmesh.org/schemas/signal.schema.json",
+  "title": "VaultMesh Signal Schema",
+  "description": "Schema for VaultMesh governance signals",
   "type": "object",
-  "required": ["id", "title", "source", "weight", "epoch", "scope"],
+  "required": ["id"],
   "properties": {
-    "id": { "type": "string" },
-    "title": { "type": "string" },
-    "description": { "type": "string" },
-    "source": { "type": "string" },
-    "weight": { "type": "number", "minimum": 0, "maximum": 1 },
-    "epoch": { "type": "string" },
-    "scope": { "type": "string", "enum": ["repo", "program", "federation"] },
-    "tags": { "type": "array", "items": { "type": "string" } }
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique signal identifier"
+    },
+    "title": {
+      "type": "string",
+      "description": "Signal title or summary"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Brief signal summary"
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0,
+      "default": 1,
+      "description": "Signal weight for aggregation"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Signal timestamp in ISO format"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Signal categorization tags"
+    },
+    "source": {
+      "type": "string",
+      "description": "Signal source or origin"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional signal metadata"
+    }
   }
 }

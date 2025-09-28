@@ -1,0 +1,24 @@
+id: P-2025-001
+title: Establish Governance Diff Gate (Tem) and Weekly Signals Digest
+status: draft
+type: Process
+author: Vault Sovereign
+created: "2025-09-28"
+summary: Require proposal lineage for governance-critical changes and formalize weekly signal digests.
+motivation: Preserve tamper-evidence and decision lineage ("memory before motion"). Convert ambient signals into a durable weekly chronicle.
+specification: Add proposal/signal validators and Makefile targets. Enforce Tem gate on guardrails, schemas, workflows, and constitutional docs. Generate docs/digests/YYYY-WW.md from signals/*.json.
+governance:
+  review_process: PR + discussion
+  quorum: simple
+  acceptance_criteria:
+    - CI (validate + Tem) green
+    - At least 1 council ACK in comments
+affected_paths:
+  - "guardrails/**"
+  - "docs/schemas/**"
+  - ".github/workflows/**"
+  - "docs/**/*.md"
+security_considerations: Gate has emergency override via label; logs retained in CI.
+references:
+  - docs/SIGNALS.md
+  - docs/governance-analysis.md

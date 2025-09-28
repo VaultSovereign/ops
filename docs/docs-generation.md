@@ -18,3 +18,10 @@ ______________________________________________________________________
 
 — VaultMesh · Earth’s Civilization Ledger —
 © Vault Sovereign · <https://vaultmesh.example/>
+
+______________________________________________________________________
+
+<p align="center"><sub>© VaultMesh - Earth's Civilization Ledger • TEM</sub></p>
+
+— VaultMesh · Earth's Civilization Ledger —
+© Vault Sovereign · <https://vaultmesh.example/>

@@ -290,3 +290,6 @@ reports-site: evals-html adversarial-html junit-html
 	@echo "[reports] preview with: python -m http.server -d $(REPORTS_DIR) 8080"
 
 reports\:site: reports-site
+
+# Include VaultMesh governance extensions
+-include Makefile.vm

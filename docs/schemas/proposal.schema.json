@@ -1,17 +1,79 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Proposal",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vaultmesh.org/schemas/proposal.schema.json",
+  "title": "VaultMesh Proposal Schema",
+  "description": "Schema for VaultMesh governance proposals",
   "type": "object",
   "required": ["id", "title", "author", "created", "status"],
   "properties": {
-    "id": { "type": "string" },
-    "title": { "type": "string" },
-    "author": { "type": "string" },
-    "created": { "type": "string", "format": "date" },
-    "status": { "type": "string", "enum": ["draft", "review", "accepted", "rejected", "executed"] },
-    "summary": { "type": "string" },
-    "motivation": { "type": "string" },
-    "changes": { "type": "array", "items": { "type": "string" } },
-    "references": { "type": "array", "items": { "type": "string" } }
-  }
+    "id": {
+      "type": "string",
+      "pattern": "^(?:VM-)?P-\\d{4}-\\d{3}$|^\\d{4}-\\d{2,4}[a-z0-9\\-]*$",
+      "description": "Unique proposal identifier"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Proposal title"
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Proposal author"
+    },
+    "authors": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Multiple authors (alternative to author)"
+    },
+    "created": {
+      "type": "string",
+      "format": "date",
+      "description": "Creation date in YYYY-MM-DD format"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "review", "accepted", "rejected", "executed"],
+      "description": "Proposal status"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["Process", "Technical", "Constitutional", "Economic"],
+      "description": "Proposal type"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Brief summary of the proposal"
+    },
+    "motivation": {
+      "type": "string",
+      "description": "Motivation for the proposal"
+    },
+    "specification": {
+      "type": "string",
+      "description": "Technical specification"
+    },
+    "governance": {
+      "type": "object",
+      "description": "Governance process details"
+    },
+    "affected_paths": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Paths affected by this proposal"
+    },
+    "security_considerations": {
+      "type": "string",
+      "description": "Security implications"
+    },
+    "references": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Reference documents"
+    }
+  },
+  "anyOf": [
+    {"required": ["author"]},
+    {"required": ["authors"]}
+  ]
 }

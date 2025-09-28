@@ -1,4 +1,4 @@
-# VaultMesh TEM — Security-Grade Prompt Library
+# VaultMesh ops — Library
 
 <!-- Populate real badges when the repository slug is public
 [![OpenSSF Best Practices](https://www.bestpractices.coreinfrastructure.org/projects/badge?id=YOUR_ID)](https://www.bestpractices.coreinfrastructure.org/projects/YOUR_ID)
@@ -8,9 +8,9 @@
 -->
 [![SPDX License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-> **A security-grade prompt library treated like code: governed, testable, and auditable.**
+> **Civilization as code library: governed, testable, and auditable.**
 
-VaultMesh TEM is a collection of parameterized cybersecurity AI prompts with enterprise-grade governance, safety controls, and automated validation. Each prompt behaves like an API with versioning, safety classifications, and adversarial testing.
+VaultMesh library is a collection of parameterized cybersecurity AI prompts with enterprise-grade governance, safety controls, and automated validation. Each prompt behaves like an API with versioning, safety classifications, and adversarial testing.
 
 ## Goal: Governance Analysis
 
@@ -68,32 +68,10 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for detailed workflow.
 
 For a one-page overview, see the Executive Field Guide: [Guides/Executive Field Guide.md](Guides/Executive%20Field%20Guide.md). For the lore-rich Civilisation Ops Library scroll, visit [Guides/Civilisation Ops Library.md](Guides/Civilisation%20Ops%20Library.md).
 
-## Repository Architecture
-
-```text
-.
-├── prompts/
-│   ├── Tem-Prompts.md           # Human-readable TEM prompt grimoire
-│   ├── index.json               # Machine-readable catalog (16 prompts)
-│   └── index.schema.json        # JSON schema for catalog validation
-├── guardrails/
-│   ├── README.md                # Policy framework (OWASP LLM, NIST SSDF)
-│   └── patterns.json            # Configurable adversarial patterns
-├── .github/
-│   ├── workflows/
-│   │   ├── evals.yml            # CI: lint → schema → ROE → coverage → adversarial
-│   │   └── scripts/
-│   │       └── adversarial-evals.js  # Automated safety scanning
-│   ├── ISSUE_TEMPLATE/          # Bug, feature, security reporting
-│   └── PULL_REQUEST_TEMPLATE.md # Review checklist
-├── Templates/                   # Prompt, runbook, persona templates
-├── Guides/                      # Documentation and workflow guides
-└── governance files             # SECURITY.md, CODEOWNERS, etc.
-```
 
 ## Operational Kits
 
-- Tool Matrix Scroll — Open‑Source Listening & Forensic Kit: `tools/Tool-Matrix.md`
+- Forensic Matrix Scroll — Open‑Source Listening & Forensic Kit: `tools/Tool-Matrix.md`
 - Lawful Intercept Matrix — Who / What / Oversight: `tools/Lawful-Intercept-Matrix.md`
 
 ---

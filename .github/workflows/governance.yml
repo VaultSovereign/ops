@@ -1,0 +1,85 @@
+name: governance
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited, reopened, ready_for_review]
+  workflow_dispatch: {}
+  schedule:
+    - cron: "14 2 * * 1"  # Mondays 02:14 UTC — weekly digest PR
+
+jobs:
+  lint:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: 
+          fetch-depth: 0
+          
+      - uses: actions/setup-python@v5
+        with: 
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements-dev.txt
+          
+      - name: Validate proposals
+        run: |
+          if [ -d proposals ]; then
+            python scripts/proposal_lint.py --schema docs/schemas/proposal.schema.json --strict
+          else
+            echo "No proposals/ directory found, skipping validation"
+          fi
+          
+      - name: Validate signals
+        run: |
+          if [ -d signals ]; then
+            python scripts/signal_validate.py --schema docs/schemas/signal.schema.json
+          else
+            echo "No signals/ directory found, skipping validation"
+          fi
+          
+      - name: Governance diff gate (Tem)
+        run: python scripts/tem_guardian.py
+
+  weekly-digest:
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with: 
+          fetch-depth: 0
+          
+      - uses: actions/setup-python@v5
+        with: 
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements-dev.txt
+          
+      - name: Generate weekly digest
+        run: |
+          if [ -d signals ]; then
+            python scripts/generate_weekly_digest.py --write
+          else
+            echo "No signals/ directory found, creating empty digest"
+            mkdir -p docs/digests
+            echo "# Weekly Digest — $(date +%Y-%U)" > docs/digests/$(date +%Y-%U).md
+            echo "No signals found this week." >> docs/digests/$(date +%Y-%U).md
+          fi
+          
+      - name: Create PR for digest
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/digest/${{ github.run_id }}
+          commit-message: "docs(digest): weekly signals rollup"
+          title: "Weekly Digest — Signals Rollup"
+          body: "Automated weekly digest for signals/*.json"
+          add-paths: docs/digests/
+          labels: documentation, automated
+

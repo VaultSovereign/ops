@@ -23,9 +23,9 @@ ______________________________________________________________________
 
 ## Flow Diagram
 
-```text
+`````text
 Query → Connectors → Ranking → Context Assembly → Provider → Output
-```
+```text
 
 ______________________________________________________________________
 
@@ -51,7 +51,7 @@ ______________________________________________________________________
 
 ### Command Examples
 
-```bash
+````bash
 # Dry-run exploration (safe, no network calls)
 python3 scripts/mcp_knowledge_summon.py \
   --query "Map our incident response playbooks to hardening steps" \
@@ -195,4 +195,11 @@ ______________________________________________________________________
 
 — VaultMesh · Earth’s Civilization Ledger —
 © Vault Sovereign · <https://vaultmesh.example/>
-````
+`````
+
+______________________________________________________________________
+
+<p align="center"><sub>© VaultMesh - Earth's Civilization Ledger • TEM</sub></p>
+
+— VaultMesh · Earth's Civilization Ledger —
+© Vault Sovereign · <https://vaultmesh.example/>

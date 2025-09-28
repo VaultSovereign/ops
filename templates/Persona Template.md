@@ -23,10 +23,7 @@ List integrations, frameworks, or workflows the persona can rely on.
 # Hand-off Pattern
 Explain how the persona returns answers, follow-up questions, and prompts for additional context.
 
+
 ---
 
-
-— VaultMesh · Earth’s Civilization Ledger —
-© Vault Sovereign · https://vaultmesh.example/
-
-
+<p align="center"><sub>© VaultMesh — Earth’s Civilization Ledger • TEM</sub></p>
