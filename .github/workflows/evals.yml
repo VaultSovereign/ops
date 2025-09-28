@@ -25,7 +25,7 @@ jobs:
 
       - name: Install deps
         run: |
-          pip install jsonschema mdformat
+          pip install jsonschema mdformat pytest
           npm i -g markdownlint-cli2@0.13.0 || true
 
       - name: Prompts sync + lint + summon
@@ -33,6 +33,16 @@ jobs:
 
       - name: Run checks (schema/guardrails/footer)
         run: make check
+
+      - name: Run tests (pytest JUnit)
+        run: make test
+
+      - name: Upload JUnit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-xml
+          path: junit.xml
 
       - name: Coverage gate (80%)
         run: make evals COVERAGE_THRESHOLD=80

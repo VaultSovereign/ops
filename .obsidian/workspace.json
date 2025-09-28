@@ -185,8 +185,12 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "f0497dbf675f268a",
+  "active": "788dc4629020fcb7",
   "lastOpenFiles": [
+    "junit.xml",
+    "pytest.ini",
+    "tests/test_smoke.py",
+    "tests",
     "prompts/Foundations/Prompt Patterns.md",
     "scripts/fix_md_headings.py",
     "scripts/fix_markdown.py",
@@ -218,9 +222,6 @@
     "runbooks/Incidents/Incident Triage.md",
     "scripts/prompts_lint.py",
     "scripts/prompts_sync.py",
-    "scripts/pr_summary.py",
-    "scripts/check_footer.py",
-    "scripts/validate_json.py",
-    "scripts/ops_mcp/__main__.py"
+    "scripts/pr_summary.py"
   ]
 }

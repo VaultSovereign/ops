@@ -98,6 +98,11 @@
           "additionalProperties": true
         }
       }
+    },
+    {
+      "name": "tests.run",
+      "description": "Run pytest and produce JUnit XML",
+      "command": "make test"
     }
   ]
 }

@@ -34,6 +34,7 @@ help:
 	@echo "make ssh:status     # show SSH connection status"
 	@echo "make lint:md:fix    # auto-fix markdown issues (URLs, fences, spacing)"
 	@echo "make lint:md:fix-all # complete markdown fix (URLs, fences, headings)"
+	@echo "make test           # run pytest with JUnit XML output"
 
 .PHONY: install
 install:
@@ -238,6 +239,11 @@ ssh-status:
 	@$(PY) scripts/ssh_auto.py status
 
 ssh\:status: ssh-status
+
+.PHONY: test
+test:
+	@echo "[test] running pytest with JUnit output"
+	@$(PY) -c "import sys, subprocess; cmd = [sys.executable, '-m', 'pytest', '-q', '--junitxml=junit.xml']; print('[test] exec:', ' '.join(cmd)); raise SystemExit(subprocess.call(cmd))"
 
 .PHONY: check
 check: validate-json prompts-lint lint-md footer guardrails
