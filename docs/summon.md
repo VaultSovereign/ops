@@ -4,7 +4,7 @@ Generated: 2025-09-28 04:44:09 UTC
 
 ## Recent changes (last 7 days)
 
-```text
+````text
 No repository activity detected.
 ```text
 
@@ -18,7 +18,7 @@ No repository activity detected.
 - Missing summaries: 36
 - Stale last_reviewed (> 90 days): 0
 
-**Prompts missing summaries**
+## 
 
 - recon-assistant (prompts/Tem-Prompts.md)
 - vuln-enumerator (prompts/Tem-Prompts.md)
@@ -151,3 +151,4 @@ No repository activity detected.
 
 — VaultMesh · Earth’s Civilization Ledger —
 © Vault Sovereign · <https://vaultmesh.example/>
+````

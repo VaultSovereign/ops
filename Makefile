@@ -33,6 +33,7 @@ help:
 	@echo "make ssh:auto       # SSH automation (agent + test + tunnel + status)"
 	@echo "make ssh:status     # show SSH connection status"
 	@echo "make lint:md:fix    # auto-fix markdown issues (URLs, fences, spacing)"
+	@echo "make lint:md:fix-all # complete markdown fix (URLs, fences, headings)"
 
 .PHONY: install
 install:
@@ -84,6 +85,20 @@ lint-md-fix:
 	@$(PY) scripts/fix_markdown.py || true
 
 lint\:md\:fix: lint-md-fix
+
+.PHONY: lint-md-fix-all lint\:md\:fix-all
+lint-md-fix-all: lint-md-fix
+	@echo "[md] fixing emphasis-as-headings (MD036)"
+	@$(PY) scripts/fix_md_headings.py || true
+	@if command -v mdformat >/dev/null 2>&1; then \
+		mdformat docs || true; \
+	elif $(PY) -c "import mdformat" >/dev/null 2>&1; then \
+		$(PY) -m mdformat docs || true; \
+	else \
+		echo "[md] mdformat not available; run 'make install'"; \
+	fi
+
+lint\:md\:fix-all: lint-md-fix-all
 
 .PHONY: footer
 footer:

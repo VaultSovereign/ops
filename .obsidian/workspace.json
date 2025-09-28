@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "prompts/Foundations/Prompt Patterns.md",
+                "file": "runbooks/Incidents/Incident Triage.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Prompt Patterns"
+              "title": "Incident Triage"
             }
           }
         ]
@@ -185,8 +185,11 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "788dc4629020fcb7",
+  "active": "f0497dbf675f268a",
   "lastOpenFiles": [
+    "prompts/Foundations/Prompt Patterns.md",
+    "scripts/fix_md_headings.py",
+    "scripts/fix_markdown.py",
     "scripts/ssh_auto.py",
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
@@ -212,16 +215,12 @@
     "templates/Prompt Template.md",
     "templates/Runbook Template.md",
     "guides/Executive Field Guide.md",
-    "prompts/Foundations/Prompt Patterns.md",
     "runbooks/Incidents/Incident Triage.md",
     "scripts/prompts_lint.py",
     "scripts/prompts_sync.py",
     "scripts/pr_summary.py",
     "scripts/check_footer.py",
     "scripts/validate_json.py",
-    "scripts/ops_mcp/__main__.py",
-    "scripts/ops_mcp/tool_registry.py",
-    "scripts/ops_mcp/__init__.py",
-    "scripts/ops_mcp"
+    "scripts/ops_mcp/__main__.py"
   ]
 }

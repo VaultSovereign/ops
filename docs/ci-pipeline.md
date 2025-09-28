@@ -19,7 +19,7 @@ Stages
 
 Local runs
 
-```text
+````text
 # From repo root
 npx --yes ajv-cli@5 validate -s prompts/index.schema.json -d prompts/index.json
 node .github/workflows/scripts/coverage-gate.js
@@ -32,3 +32,4 @@ ______________________________________________________________________
 
 — VaultMesh · Earth’s Civilization Ledger —
 © Vault Sovereign · <https://vaultmesh.example/>
+````

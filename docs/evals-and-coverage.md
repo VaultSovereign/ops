@@ -22,7 +22,7 @@
 
 ## Local Debug
 
-```text
+````text
 node .github/workflows/scripts/adversarial-evals.js || true
 node .github/workflows/scripts/coverage-gate.js || true
 jq . eval-results/adversarial-results.json 2>/dev/null || true
@@ -32,3 +32,4 @@ ______________________________________________________________________
 
 — VaultMesh · Earth’s Civilization Ledger —
 © Vault Sovereign · <https://vaultmesh.example/>
+````
