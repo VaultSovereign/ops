@@ -1,0 +1,119 @@
+name: evals-and-validators
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: |
+          pip install jsonschema mdformat
+          npm i -g markdownlint-cli2@0.13.0 || true
+
+      - name: Prompts sync + lint + summon
+        run: make prompts:sync prompts:lint docs:summon
+
+      - name: Run checks (schema/guardrails/footer)
+        run: make check
+
+      - name: Coverage gate (80%)
+        run: make evals COVERAGE_THRESHOLD=80
+
+      - name: Upload eval artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-artifacts
+          path: eval-results/**/*.json
+
+  pr-labels:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v5
+        with:
+          configuration-path: .github/labeler.yml
+          sync-labels: false
+
+  docs:
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate docs index
+        run: make docs:index
+      - name: Create docs update PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "docs: refresh auto-generated prompt index"
+          title: "docs: refresh auto-generated prompt index"
+          body: "This PR updates docs/index.md from prompts/index.json."
+          branch: chore/auto-docs-index
+          base: ${{ github.ref_name }}
+
+  nightly-summon:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run knowledge summon
+        run: python scripts/mcp_knowledge_summon.py
+      - name: Create PR (if changes)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(docs): nightly knowledge summon"
+          title: "chore(docs): nightly knowledge summon"
+          branch: chore/nightly-summon
+          delete-branch: true
+
+  badges:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update README badges
+        run: make badges
+        env:
+          REPO_OWNER: OWNER
+          REPO_NAME: REPO
+          OSSF_BP_ID: "ID"
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "docs(readme): inject OpenSSF badges"
+          title: "docs(readme): inject OpenSSF badges"
+          body: "Automated badge insertion with owner/repo and Best Practices project ID."
+          branch: chore/update-badges

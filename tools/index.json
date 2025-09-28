@@ -1,0 +1,103 @@
+{
+  "version": "1.0.0",
+  "tools": [
+    {
+      "id": "tool-matrix",
+      "title": "Tool Matrix Scroll — Open‑Source Listening & Forensic Kit",
+      "path": "tools/Tool-Matrix.md",
+      "tags": ["lawful", "forensics", "osint", "network", "mobile"]
+    },
+    {
+      "id": "lawful-intercept-matrix",
+      "title": "Lawful Intercept Matrix — Who / What / Oversight",
+      "path": "tools/Lawful-Intercept-Matrix.md",
+      "tags": ["lawful", "oversight", "policy", "regions"]
+    }
+  ],
+  "mcp_tools": [
+    {
+      "name": "docs.index",
+      "description": "Rebuild docs index",
+      "command": "make docs:index"
+    },
+    {
+      "name": "docs.footer_check",
+      "description": "Validate docs footer",
+      "command": "make footer"
+    },
+    {
+      "name": "prompts.validate",
+      "description": "Validate prompt JSON against schema",
+      "command": "make validate:json"
+    },
+    {
+      "name": "guardrails.validate",
+      "description": "Run guardrail validators",
+      "command": "make guardrails"
+    },
+    {
+      "name": "evals.coverage",
+      "description": "Run coverage gate",
+      "command": "make evals",
+      "parameters": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Coverage percentage gate"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "env_map": {
+        "threshold": "COVERAGE_THRESHOLD"
+      }
+    },
+    {
+      "name": "badges.update",
+      "description": "Update repo badges",
+      "command": "make badges"
+    },
+    {
+      "name": "prompts.sync",
+      "description": "Regenerate prompts index and validate",
+      "command": "make prompts:sync"
+    },
+    {
+      "name": "prompts.lint",
+      "description": "Validate prompt metadata",
+      "command": "make prompts:lint"
+    },
+    {
+      "name": "knowledge.summon",
+      "description": "Generate knowledge summon report",
+      "command": "make docs:summon"
+    },
+    {
+      "name": "pr.summary",
+      "description": "Generate PR auto-summary comment and labels",
+      "command": "make pr:summary",
+      "parameters": {
+        "schema": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "name": "impact.scan",
+      "description": "Preview PR impact summary",
+      "command": "make pr:scan",
+      "parameters": {
+        "schema": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  ]
+}

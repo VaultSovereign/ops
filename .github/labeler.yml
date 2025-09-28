@@ -1,0 +1,19 @@
+area:docs:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/**'
+
+area:prompts:
+  - changed-files:
+      - any-glob-to-any-file: 'prompts/**'
+
+ops:mcp:
+  - changed-files:
+      - any-glob-to-any-file: 'scripts/ops_mcp/**'
+
+owner:maintainers:
+  - changed-files:
+      - any-glob-to-any-file: 'prompts/Tem-Prompts.md'
+
+domain:general:
+  - changed-files:
+      - any-glob-to-any-file: 'prompts/Tem-Prompts.md'

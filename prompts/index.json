@@ -1,0 +1,1144 @@
+{
+  "version": "0.1.0",
+  "prompts": [
+    {
+      "id": "recon-assistant",
+      "title": "Reconnaissance Assistant",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#reconnaissance-assistant",
+      "tags": [
+        "recon",
+        "osint",
+        "dns",
+        "subdomains",
+        "inventory"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "target",
+        "scope",
+        "depth",
+        "output_format"
+      ],
+      "outputs": [
+        "summary",
+        "dns_records",
+        "subdomains",
+        "host_ip_mappings",
+        "ip_ranges",
+        "open_ports_suspected",
+        "external_references",
+        "confidence_scores"
+      ],
+      "domain": "recon",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "vuln-enumerator",
+      "title": "Vulnerability Enumerator",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#vulnerability-enumerator",
+      "tags": [
+        "vuln",
+        "cve",
+        "misconfig",
+        "probes",
+        "mitigation"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "target",
+        "known_services",
+        "fingerprinting",
+        "output_format"
+      ],
+      "outputs": [
+        "cves",
+        "misconfigurations",
+        "probes",
+        "evidence_steps",
+        "mitigations",
+        "confidence"
+      ],
+      "requires_roe_token": false,
+      "risk_level": "medium",
+      "authorization_level": "supervisor",
+      "domain": "vuln",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "exploit-generator",
+      "title": "Exploit Generator (PoC Sketch)",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#exploit-generator-poc-sketch",
+      "tags": [
+        "exploit",
+        "poc",
+        "pseudocode",
+        "lab",
+        "redteam"
+      ],
+      "owner": "maintainers",
+      "safety_class": "lab-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "service",
+        "version",
+        "port",
+        "vulnerability"
+      ],
+      "outputs": [
+        "threat_model",
+        "poc_sketch",
+        "lab_steps",
+        "tools_env",
+        "safety_warning"
+      ],
+      "requires_roe_token": true,
+      "risk_level": "high",
+      "authorization_level": "security_team",
+      "domain": "exploit",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "defensive-advisor",
+      "title": "Defensive Advisor",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#defensive-advisor",
+      "tags": [
+        "defense",
+        "hardening",
+        "config",
+        "compliance"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "asset",
+        "vuln_list",
+        "current_configs",
+        "compliance_targets"
+      ],
+      "outputs": [
+        "prioritized_mitigations",
+        "configuration_snippets",
+        "validation_checks",
+        "residual_risk_notes"
+      ],
+      "domain": "defense",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "incident-responder",
+      "title": "Incident Responder",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#incident-responder",
+      "tags": [
+        "incident",
+        "triage",
+        "forensics",
+        "recovery",
+        "comms"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "incident_description",
+        "observed_indicators",
+        "affected_assets",
+        "time_detected"
+      ],
+      "outputs": [
+        "triage_summary",
+        "immediate_actions",
+        "forensic_collection_plan",
+        "eradication_steps",
+        "recovery_playbook",
+        "lessons_learned",
+        "communication_template"
+      ],
+      "requires_roe_token": false,
+      "risk_level": "high",
+      "authorization_level": "supervisor",
+      "domain": "incident",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "log-analyzer",
+      "title": "Log Analyzer",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#log-analyzer",
+      "tags": [
+        "logs",
+        "anomalies",
+        "detection",
+        "queries"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "logs",
+        "artifact_context"
+      ],
+      "outputs": [
+        "key_events",
+        "anomalies",
+        "probable_root_cause",
+        "recommended_followups",
+        "output_format"
+      ],
+      "domain": "logs",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "red-team-emulation",
+      "title": "Red-Team Emulation",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#red-team-emulation",
+      "tags": [
+        "emulation",
+        "attack",
+        "ttp",
+        "simulation",
+        "safety"
+      ],
+      "owner": "maintainers",
+      "safety_class": "lab-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "objective",
+        "scope_rules",
+        "techniques",
+        "detection_focus"
+      ],
+      "outputs": [
+        "engagement_plan",
+        "ttps",
+        "safety_controls",
+        "expected_detections",
+        "success_criteria"
+      ],
+      "requires_roe_token": true,
+      "risk_level": "critical",
+      "authorization_level": "security_team",
+      "domain": "emulation",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "threat-intel-summarizer",
+      "title": "Threat Intelligence Summarizer",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#threat-intelligence-summarizer",
+      "tags": [
+        "intel",
+        "ti",
+        "ioc",
+        "advisories",
+        "citations"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "sources",
+        "timeframe",
+        "audience"
+      ],
+      "outputs": [
+        "summary_bullets",
+        "notable_IOCs",
+        "affected_sectors",
+        "recommended_actions",
+        "citations"
+      ],
+      "domain": "intel",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "prompt-injection-tester",
+      "title": "Prompt Injection Tester",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#prompt-injection-tester",
+      "tags": [
+        "prompt-injection",
+        "jailbreak",
+        "exfiltration",
+        "guardrails"
+      ],
+      "owner": "maintainers",
+      "safety_class": "lab-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "target_prompt",
+        "model_constraints",
+        "data_scopes"
+      ],
+      "outputs": [
+        "injection_vectors",
+        "test_cases",
+        "risk_ratings",
+        "mitigations",
+        "residual_risks"
+      ],
+      "requires_roe_token": true,
+      "risk_level": "medium",
+      "authorization_level": "security_team",
+      "domain": "prompt-injection",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "ai-guardrail-checker",
+      "title": "AI Guardrail Checker",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#ai-guardrail-checker",
+      "tags": [
+        "guardrails",
+        "authz",
+        "approvals",
+        "logging",
+        "policy"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "agent_description",
+        "permissions_matrix",
+        "data_access",
+        "safety_policies"
+      ],
+      "outputs": [
+        "policy_checklist",
+        "violations_found",
+        "missing_approvals",
+        "telemetry_hooks",
+        "test_scenarios"
+      ],
+      "domain": "guardrails",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "code-security-reviewer",
+      "title": "Code Security Reviewer",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#code-security-reviewer",
+      "tags": [
+        "code-review",
+        "secrets",
+        "crypto",
+        "injection"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "repo_context",
+        "diffs_or_files",
+        "focus_areas"
+      ],
+      "outputs": [
+        "findings",
+        "false_positive_notes",
+        "quick_wins",
+        "longer_term"
+      ],
+      "domain": "code-review",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "social-engineering-strategist",
+      "title": "Social Engineering Strategist",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#social-engineering-strategist",
+      "tags": [
+        "social",
+        "awareness",
+        "training",
+        "phishing"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "objective",
+        "audience",
+        "channels",
+        "rules_of_engagement"
+      ],
+      "outputs": [
+        "training_modules",
+        "simulated_scenarios",
+        "success_metrics",
+        "debrief_materials"
+      ],
+      "requires_roe_token": false,
+      "risk_level": "medium",
+      "authorization_level": "supervisor",
+      "domain": "social",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "ctf-challenge-designer",
+      "title": "CTF Challenge Designer",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#ctf-challenge-designer",
+      "tags": [
+        "ctf",
+        "challenge",
+        "walkthrough",
+        "hints"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "topic",
+        "difficulty",
+        "learning_objective"
+      ],
+      "outputs": [
+        "challenge_brief",
+        "artifacts_needed",
+        "walkthrough_outline",
+        "scoring_and_hints"
+      ],
+      "domain": "ctf",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "risk-assessment-calculator",
+      "title": "Risk Assessment Calculator",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#risk-assessment-calculator",
+      "tags": [
+        "risk",
+        "scoring",
+        "controls",
+        "prioritization"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "assets",
+        "threats",
+        "controls"
+      ],
+      "outputs": [
+        "risk_scores",
+        "top_risks",
+        "control_recommendations",
+        "assumptions_and_limits"
+      ],
+      "domain": "risk",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "tool-hints-osint-recipes",
+      "title": "Tool Hints & OSINT Recipes",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#tool-hints--osint-recipes",
+      "tags": [
+        "tools",
+        "osint",
+        "references",
+        "ethics"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "use_case",
+        "target_type"
+      ],
+      "outputs": [
+        "tool_suggestions",
+        "safety_guidelines",
+        "ethical_constraints",
+        "legal_considerations"
+      ],
+      "requires_roe_token": false,
+      "risk_level": "low",
+      "authorization_level": "supervisor",
+      "domain": "tools",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "llm-guardrails-operational-controls",
+      "title": "LLM Guardrails & Operational Controls (citations)",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#llm-guardrails--operational-controls-citations",
+      "tags": [
+        "guardrails",
+        "policy",
+        "governance",
+        "approvals",
+        "logging"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "context",
+        "policy_domain"
+      ],
+      "outputs": [
+        "operational_controls",
+        "authoritative_citations",
+        "compliance_mappings",
+        "audit_requirements"
+      ],
+      "domain": "guardrails",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "ai-threat-hunter",
+      "title": "AI Threat Hunter",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#ai-threat-hunter",
+      "tags": [
+        "hunting",
+        "anomalies",
+        "behavior",
+        "xdr"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "telemetry",
+        "scope",
+        "hunt_hypotheses",
+        "timeframe",
+        "output_format"
+      ],
+      "outputs": [
+        "hunt_plan",
+        "findings",
+        "blindspots",
+        "validation_steps"
+      ],
+      "domain": "hunting",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "soar-playbook-generator",
+      "title": "SOAR Playbook Generator",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#soar-playbook-generator",
+      "tags": [
+        "soar",
+        "playbooks",
+        "response"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "incident_archetype",
+        "tools_available",
+        "policy_constraints",
+        "output_format"
+      ],
+      "outputs": [
+        "playbook",
+        "data_requirements",
+        "rollback",
+        "metrics"
+      ],
+      "authorization_level": "supervisor",
+      "domain": "soar",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "xdr-correlation-engine",
+      "title": "XDR Correlation Engine",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#xdr-correlation-engine",
+      "tags": [
+        "xdr",
+        "correlation",
+        "graph"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "sources",
+        "seed_entities",
+        "window"
+      ],
+      "outputs": [
+        "attack_threads",
+        "queries_to_replay"
+      ],
+      "domain": "xdr",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "zero-trust-policy-validator",
+      "title": "Zero-Trust Policy Validator",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#zero-trust-policy-validator",
+      "tags": [
+        "zero-trust",
+        "policy",
+        "authz"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "policy_docs",
+        "identity_graph",
+        "asset_tags"
+      ],
+      "outputs": [
+        "violations",
+        "simulators"
+      ],
+      "authorization_level": "supervisor",
+      "domain": "zero-trust",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "threat-intel-fusion",
+      "title": "Threat Intelligence Fusion",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#threat-intel-fusion",
+      "tags": [
+        "ti",
+        "fusion",
+        "prioritization"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "feeds",
+        "local_telemetry_hints",
+        "sectors"
+      ],
+      "outputs": [
+        "prioritized_iocs",
+        "actor_snapshots",
+        "watchlists",
+        "gaps"
+      ],
+      "domain": "ti",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "attack-surface-mapper",
+      "title": "Attack Surface Mapper",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#attack-surface-mapper",
+      "tags": [
+        "asm",
+        "inventory",
+        "exposure"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "org_names",
+        "domains",
+        "ranges",
+        "allowed_methods"
+      ],
+      "outputs": [
+        "assets",
+        "next_actions"
+      ],
+      "authorization_level": "supervisor",
+      "domain": "asm",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "vuln-prioritization-engine",
+      "title": "Vulnerability Prioritization Engine",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#vuln-prioritization-engine",
+      "tags": [
+        "vuln",
+        "cvss",
+        "risk"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "vuln_list",
+        "asset_context",
+        "business_criticality"
+      ],
+      "outputs": [
+        "pri_list"
+      ],
+      "domain": "vuln",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "security-metrics-dashboard",
+      "title": "Security Metrics Dashboard Generator",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#security-metrics-dashboard",
+      "tags": [
+        "kpi",
+        "reporting",
+        "compliance"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "target_audience",
+        "frameworks",
+        "data_sources"
+      ],
+      "outputs": [
+        "dashboard_spec",
+        "queries",
+        "slo_sla_notes"
+      ],
+      "domain": "kpi",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "cspm-advisor",
+      "title": "Cloud Security Posture Manager",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#cspm-advisor",
+      "tags": [
+        "cloud",
+        "misconfig",
+        "drift"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "cloud_inventories",
+        "guardrails",
+        "exceptions"
+      ],
+      "outputs": [
+        "findings",
+        "terraform_snippets",
+        "validation_checks"
+      ],
+      "authorization_level": "supervisor",
+      "domain": "cloud",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "container-security-scanner",
+      "title": "Container Security Scanner",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#container-security-scanner",
+      "tags": [
+        "container",
+        "images",
+        "runtime"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "image_manifests",
+        "runtime_events"
+      ],
+      "outputs": [
+        "risks",
+        "base_image_fix_paths",
+        "policy_recipes"
+      ],
+      "authorization_level": "supervisor",
+      "domain": "container",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "kubernetes-security-advisor",
+      "title": "Kubernetes Security Advisor",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#kubernetes-security-advisor",
+      "tags": [
+        "k8s",
+        "psp",
+        "netpol"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "cluster_specs",
+        "manifests",
+        "policies"
+      ],
+      "outputs": [
+        "misconfigs",
+        "hardening_steps",
+        "test_manifests"
+      ],
+      "authorization_level": "supervisor",
+      "domain": "k8s",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "serverless-security-monitor",
+      "title": "Serverless Security Monitor",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#serverless-security-monitor",
+      "tags": [
+        "serverless",
+        "functions",
+        "runtime"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "fn_configs",
+        "logs"
+      ],
+      "outputs": [
+        "anomalies",
+        "least_privilege_suggestions"
+      ],
+      "domain": "serverless",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "ai-model-security-auditor",
+      "title": "AI Model Security Auditor",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#ai-model-security-auditor",
+      "tags": [
+        "mlsec",
+        "adversarial",
+        "bias"
+      ],
+      "owner": "maintainers",
+      "safety_class": "lab-only",
+      "requires_roe_token": true,
+      "schema_version": "1.0.0",
+      "inputs": [
+        "model_desc",
+        "task",
+        "risk_tolerances"
+      ],
+      "outputs": [
+        "test_plan",
+        "adversarial_cases",
+        "bias_findings",
+        "mitigations"
+      ],
+      "risk_level": "high",
+      "authorization_level": "security_team",
+      "domain": "mlsec",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "privacy-impact-assessor",
+      "title": "Privacy Impact Assessor",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#privacy-impact-assessor",
+      "tags": [
+        "privacy",
+        "gdpr",
+        "ccpa"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "data_map",
+        "purposes",
+        "bases"
+      ],
+      "outputs": [
+        "risks",
+        "terraform_snippets",
+        "validation_checks"
+      ],
+      "authorization_level": "supervisor",
+      "domain": "privacy",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "synthetic-data-generator",
+      "title": "Synthetic Data Generator",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#synthetic-data-generator",
+      "tags": [
+        "synthetic",
+        "privacy",
+        "testdata"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "schema",
+        "constraints",
+        "utility_targets"
+      ],
+      "outputs": [
+        "gen_strategy",
+        "privacy_budget_notes",
+        "quality_tests"
+      ],
+      "authorization_level": "supervisor",
+      "domain": "synthetic",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "ai-prompt-security-scanner",
+      "title": "AI Prompt Security Scanner",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#ai-prompt-security-scanner",
+      "tags": [
+        "prompt-security",
+        "injection",
+        "guardrails"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "prompt_text",
+        "context_sources",
+        "allowed_actions"
+      ],
+      "outputs": [
+        "findings",
+        "mitigations",
+        "tests"
+      ],
+      "domain": "prompt-security",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "security-training-simulator",
+      "title": "Security Training Simulator",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#security-training-simulator",
+      "tags": [
+        "training",
+        "phishing",
+        "awareness"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "audience",
+        "channels",
+        "rules_of_engagement"
+      ],
+      "outputs": [
+        "modules",
+        "scenarios",
+        "metrics",
+        "debrief"
+      ],
+      "authorization_level": "supervisor",
+      "domain": "training",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "compliance-gap-analyzer",
+      "title": "Compliance Gap Analyzer",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#compliance-gap-analyzer",
+      "tags": [
+        "compliance",
+        "mapping",
+        "gaps"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "current_controls",
+        "target_frameworks"
+      ],
+      "outputs": [
+        "gap_list",
+        "remediation_map",
+        "owners"
+      ],
+      "domain": "compliance",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "incident-timeline-reconstructor",
+      "title": "Incident Timeline Reconstructor",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#incident-timeline-reconstructor",
+      "tags": [
+        "forensics",
+        "timeline",
+        "evidence"
+      ],
+      "owner": "maintainers",
+      "safety_class": "read-only",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "artifacts",
+        "logs",
+        "case_meta"
+      ],
+      "outputs": [
+        "timeline",
+        "integrity_notes",
+        "followups"
+      ],
+      "domain": "forensics",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    },
+    {
+      "id": "security-architecture-validator",
+      "title": "Security Architecture Validator",
+      "path": "prompts/Tem-Prompts.md",
+      "anchor": "#security-architecture-validator",
+      "tags": [
+        "architecture",
+        "patterns",
+        "controls"
+      ],
+      "owner": "maintainers",
+      "safety_class": "advisory",
+      "schema_version": "1.0.0",
+      "inputs": [
+        "diagrams",
+        "threat_model",
+        "requirements"
+      ],
+      "outputs": [
+        "pattern_mismatches",
+        "design_risks",
+        "remediations"
+      ],
+      "authorization_level": "supervisor",
+      "domain": "architecture",
+      "eval_tag": "none",
+      "summary": "TBD",
+      "last_reviewed": "2025-09-28",
+      "links": []
+    }
+  ]
+}

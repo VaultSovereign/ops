@@ -1,0 +1,17 @@
+{
+  // VaultMesh Footer Check configuration
+  // This file supports comments. The checker strips // and /* */ before parsing.
+  //
+  // ignore_globs: array of POSIX-style glob patterns (rooted at repo root)
+  // Use to skip third-party docs, generated files, or areas not requiring the footer.
+  "ignore_globs": [
+    "docs/third_party/**",
+    "docs/generated/**",
+    "Guides/**/third_party/**",
+    "Templates/**",
+    "templates/**",
+    "node_modules/**",
+    ".git/**"
+  ]
+}
+

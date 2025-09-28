@@ -1,0 +1,32 @@
+{
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "pre_prompt": "You are a security-grade assistant. Follow safety class, cite sources from the provided context, avoid speculation beyond the cited materials, and prefer minimally sufficient answers.",
+  "guardrails": {
+    "safety_class": "read-only",
+    "block_patterns": [
+      "\nrm -rf ",
+      "DROP TABLE",
+      "password=",
+      "-----BEGIN PRIVATE KEY-----"
+    ]
+  },
+  "sources": [
+    {
+      "type": "filesystem",
+      "include": [
+        "guides/**/*.md",
+        "docs/**/*.md",
+        "prompts/**/*.md",
+        "guardrails/**/*.md",
+        "tools/**/*.md"
+      ],
+      "exclude": [
+        "**/node_modules/**",
+        "**/.git/**",
+        "**/.obsidian/**"
+      ]
+    }
+  ]
+}
+

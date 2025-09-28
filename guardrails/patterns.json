@@ -1,0 +1,41 @@
+{
+  "version": "1.1.0",
+  "severity_thresholds": {
+    "read-only": "medium",
+    "advisory": "high",
+    "lab-only": "off"
+  },
+  "classes": {
+    "read-only": {
+      "prohibited": [
+        { "id": "shell-rce", "pattern": "bash\\s+-c.*curl.*\\|\\s*sh", "severity": "high" },
+        { "id": "ncat-reverse", "pattern": "\\bncat\\b|\\bnc\\s+-e\\b", "severity": "high" },
+        { "id": "meterpreter", "pattern": "meterpreter", "severity": "high" },
+        { "id": "powershell-enc", "pattern": "powershell\\s+-enc\\b", "severity": "medium" },
+        { "id": "rm-rf", "pattern": "rm\\s+-rf\\b", "severity": "medium" },
+        { "id": "mimikatz", "pattern": "mimikatz\\b", "severity": "high" },
+        { "id": "pipe-install", "pattern": "curl.*\\|\\s*sh", "severity": "high" }
+      ]
+    },
+    "advisory": {
+      "prohibited": [
+        { "id": "shell-rce", "pattern": "bash\\s+-c.*curl.*\\|\\s*sh", "severity": "high" },
+        { "id": "ncat-reverse", "pattern": "\\bncat\\b|\\bnc\\s+-e\\b", "severity": "high" },
+        { "id": "meterpreter", "pattern": "meterpreter", "severity": "high" },
+        { "id": "mimikatz", "pattern": "mimikatz\\b", "severity": "high" }
+      ]
+    },
+    "lab-only": {
+      "prohibited": []
+    }
+  },
+  "per_prompt_allowlist": {
+    "example-prompt-id": ["meterpreter"]
+  },
+  "informational": [
+    { "id": "invoke-webrequest", "pattern": "Invoke-WebRequest", "severity": "low", "category": "download" },
+    { "id": "base64-decode", "pattern": "Base64\\s+decode", "severity": "low", "category": "encoding" },
+    { "id": "wget-download", "pattern": "wget\\s+", "severity": "low", "category": "download" },
+    { "id": "curl-download", "pattern": "curl\\s+", "severity": "low", "category": "download" }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tem Prompt Index",
+  "type": "object",
+  "properties": {
+    "version": { "type": "string" },
+    "prompts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "path",
+          "anchor",
+          "tags",
+          "owner",
+          "domain",
+          "eval_tag",
+          "summary",
+          "last_reviewed",
+          "links",
+          "safety_class",
+          "schema_version"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "path": { "type": "string" },
+          "anchor": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "owner": { "type": "string" },
+          "domain": { "type": "string" },
+          "eval_tag": { "type": "string" },
+          "summary": { "type": "string" },
+          "last_reviewed": { "type": "string" },
+          "links": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "safety_class": { "type": "string", "enum": ["read-only", "advisory", "lab-only"] },
+          "schema_version": { "type": "string" },
+          "inputs": { "type": "array", "items": { "type": "string" } },
+          "outputs": { "type": "array", "items": { "type": "string" } },
+          "requires_roe_token": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether this prompt requires explicit rules of engagement token for execution"
+          },
+          "risk_level": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"],
+            "description": "Risk assessment level for operational impact"
+          },
+          "authorization_level": {
+            "type": "string",
+            "enum": ["none", "supervisor", "security_team", "executive"],
+            "description": "Required authorization level for execution"
+          }
+        }
+      }
+    }
+  },
+  "required": ["version", "prompts"]
+}
