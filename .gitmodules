@@ -1,0 +1,4 @@
+[submodule "tools/cmd"]
+	path = tools/cmd
+	url = git@github.com:VaultSovereign/cmd.git
+	branch = main
