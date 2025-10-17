@@ -1,4 +1,6 @@
 # VaultMesh ops — Library
+[![pre-commit](https://github.com/VaultSovereign/vm-ops/actions/workflows/precommit.yml/badge.svg)](https://github.com/VaultSovereign/vm-ops/actions/workflows/precommit.yml)
+
 
 <!-- Populate real badges when the repository slug is public
 [![OpenSSF Best Practices](https://www.bestpractices.coreinfrastructure.org/projects/badge?id=YOUR_ID)](https://www.bestpractices.coreinfrastructure.org/projects/YOUR_ID)
