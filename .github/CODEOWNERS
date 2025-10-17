@@ -2,10 +2,10 @@
 # Review required for specific paths
 
 # Workflows and CI configuration
-/.github/workflows/*  @VaultSovereign/ops
+/.github/workflows/*  @VaultSovereign/vm-ops
 
 # cmd submodule
-/tools/cmd/**         @VaultSovereign/ops
+/tools/cmd/**         @VaultSovereign/vm-ops
 
 # Constitutional prompts
-/prompts/**           @VaultSovereign/ops
+/prompts/**           @VaultSovereign/vm-ops
